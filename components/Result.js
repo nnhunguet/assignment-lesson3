@@ -1,31 +1,38 @@
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, Image} from 'react-native';
 
 export default function Result({gamer, computer}){
 
   const imgUri = [
-    {
-      uri: 'https://product.hstatic.net/1000230347/product/keo_thien_long_-_flexoffice_fo-sc02__8__large.jpg',
-    },
-    {
-      uri: 'https://vlxdthaohien.com/wp-content/uploads/2019/01/%C4%90%C3%A1-1x2-L2.png'
-    },
-    {
-      uri: 'https://cdn0.fahasa.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/8/9/8934986002630.jpg'
-    }
+      require('../assets/scissors.png'),
+      require('../assets/rock.png'),
+      require('../assets/paper.png')
   ]
 
-  const displayImage = (type) => {
-    return imgUri[type-1];
+  const title = [
+    'Scissorts',
+    'Rock',
+    'Paper'
+  ]
+
+  const displayImage = (arr, type) => {
+    return arr[type-1];
   }
 
   return(
     <View style={styles.container}>
       <View style={styles.left}>
-        <Image source={} />
+        <Text style={styles.text}>Bạn</Text>
+        <Image style={styles.image}  source={displayImage(imgUri, gamer)}/>
+        <Text style={styles.text}>{displayImage(title, gamer)}</Text>
+      </View>
+      <View>
+        <Text style={styles.text}>VS</Text>
       </View>
       <View style={styles.right}>
-      <Text>{computer}</Text>
+        <Text style={styles.text}>Máy</Text>
+        <Image style={styles.image}  source={displayImage(imgUri, computer)}/>
+        <Text style={styles.text}>{displayImage(title, computer)}</Text>
       </View>
     </View>
   )
@@ -34,14 +41,26 @@ export default function Result({gamer, computer}){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    alignItems: "center",
   },
   left: {
-    flex:5,
-    backgroundColor: "red",
+    flex:1,
   },
   right: {
-    flex: 5,
-    backgroundColor: "yellow"
+    flex: 1,
+  },
+  image: {
+    width: "100%",
+    height: 200,
+    resizeMode: "contain",
+  },
+  text: {
+    fontSize: 26,
+    fontWeight: "bold",
+    textAlign: "center",
+    textDecorationLine: "underline",
+    textDecorationColor: "red",
+    color: "#640E13"
   }
 })

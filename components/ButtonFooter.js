@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function ButtonFooter({name, type, setGamer, setComputer}) {
+export default function ButtonFooter({name, type, setGamer, setComputer, }) {
 
   const handleClick = (type) => {
-    type === 1 ? (setGamer(1), setComputer(Math.floor(Math.random()*3)+1)) : type === 2 ? (setGamer(2),setComputer(Math.floor(Math.random()*3)+1)) : (setGamer(3),setComputer(Math.floor(Math.random()*3)+1))
+    type === 1 ? (setGamer(1), setComputer(Math.floor(Math.random()*3)+1)) : type === 2 ? (setGamer(2),setComputer(Math.floor(Math.random()*3, )+1)) : (setGamer(3),setComputer(Math.floor(Math.random()*3)+1))
   }
   
   return(
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 16,
-    fontWeight: 700,
+    fontWeight: "700",
   }
 })
