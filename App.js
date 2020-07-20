@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect  } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import ButtonFooter from './components/ButtonFooter';
 import Result from './components/Result';
@@ -36,7 +36,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       
       {/* header */}
       {
@@ -100,7 +100,7 @@ export default function App() {
       </View>
 
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -108,12 +108,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: "center",
   },
   header: {
+    flexDirection: "row",
   },
   result: {
     flex: 6,
-    borderStyle: 'soild',
+    borderStyle: 'solid',
     borderColor: 'black',
     borderWidth: 2,
     margin: "auto",
