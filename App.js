@@ -41,32 +41,45 @@ export default function App() {
       {/* header */}
       {
         gamer !== 0 && 
-        ( <View style={styles.header}>
+        ( 
+        <View style={styles.header}>
           <Text style={styles.resultText}>
             {
               getResult()
             }
           </Text>
-          <View style={{flexDirection: "row"}}>
-            <Text style={styles.resultText}>
+          <Text style={{textAlign: "center"}}>Tổng số trận: {parseInt(win+lose+equal)}</Text>
+          <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+            <Text style={styles.countText}>
               Thắng
             </Text>
-            <Text style={styles.resultText}>
+            <Text style={styles.countText}>
               Hoà
             </Text>
-            <Text style={styles.resultText}>
+            <Text style={styles.countText}>
             Thua
             </Text>
           </View>
-          <View style={{flexDirection: "row"}}>
-            <Text style={styles.resultText}>
+          <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+            <Text style={styles.countText}>
               {win}
             </Text>
-            <Text style={styles.resultText}>
+            <Text style={styles.countText}>
               {equal}
             </Text>
-            <Text style={styles.resultText}>
+            <Text style={styles.countText}>
               {lose}
+            </Text>
+          </View>
+          <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+            <Text style={styles.countText}>
+              Tỷ lệ win: {parseFloat(win/(win+lose+equal)).toFixed(2)}
+            </Text>
+            <Text style={styles.countText}>
+              Tỷ lệ hoà: {parseFloat(equal/(win+lose+equal)).toFixed(2)}
+            </Text>
+            <Text style={styles.countText}>
+              Tỷ lệ thua: {parseFloat(lose/(win+lose+equal)).toFixed(2)}
             </Text>
           </View>
         </View> )
@@ -111,7 +124,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   header: {
-    flexDirection: "row",
+    flexDirection: "column",
+    width: "100%",
+  },
+  resultText: {
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 24,
+  },  
+  countText: {
+    fontSize: 14,
   },
   result: {
     flex: 6,
@@ -130,12 +152,6 @@ const styles = StyleSheet.create({
 
     elevation: 15,
   },
-  resultText: {
-    flex: 1,
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 24,
-  },  
   footer: {
     flex: 3,
     width: "50%",
